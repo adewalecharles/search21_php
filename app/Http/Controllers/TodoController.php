@@ -10,6 +10,7 @@ class TodoController extends Controller
     public function store(Request $request)
     {
         try {
+            
             $valid = $request->validate([
                 'title' => 'required|string'
             ]);
