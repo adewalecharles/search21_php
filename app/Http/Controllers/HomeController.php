@@ -34,6 +34,6 @@ class HomeController extends Controller
             return view('home',['tasks' => $tasks->json()['data']]);
         }
 
-        return view('home')->with('warning', 'Could not fetch tasks');
+        return view('home', ['tasks' => []]);
     }
 }
