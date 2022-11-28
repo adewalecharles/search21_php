@@ -27,7 +27,7 @@ class HomeController extends Controller
         $tasks = Http::withHeaders([
             "Accept" => "application/json",
             "Content-Type" => "application/json",
-            "Authorization" => "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYzN2NkZjFmNGE2YzM2MTczMTMzYjM1YiIsImVtYWlsIjoic2h5cHJpbmNlMUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYSQwOCRGUi5zTE9CZzBOdTBLUjBZMS9vNm1PdEUzWHY0T1lhMU5RSGhWNEdaaktOQ1Ztc0czOWo0aSIsIl9fdiI6MH0sImlhdCI6MTY2OTEzMzYxMSwiZXhwIjoxNjY5MjIwMDExfQ.yiFUMGjBcq93TB2tOo5zzfCqbnYL92dzddQ0JvqN_qc"
+            "Authorization" => "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYzN2NkZjFmNGE2YzM2MTczMTMzYjM1YiIsImVtYWlsIjoic2h5cHJpbmNlMUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYSQwOCRGUi5zTE9CZzBOdTBLUjBZMS9vNm1PdEUzWHY0T1lhMU5RSGhWNEdaaktOQ1Ztc0czOWo0aSIsIl9fdiI6MH0sImlhdCI6MTY2OTYyNzAwMywiZXhwIjoxNjY5NzEzNDAzfQ.0wNpavQJl1eRWOk2gmqxAwgiMNLLXEwl3_jZnAOpP1s"
         ])->get(env('NODE_SERVER').'/todos?owner='.auth()->user()->uuid.'');
 
         if ($tasks->successful()) {
