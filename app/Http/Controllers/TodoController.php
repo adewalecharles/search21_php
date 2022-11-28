@@ -10,7 +10,7 @@ class TodoController extends Controller
     public function store(Request $request)
     {
         try {
-            
+
             $valid = $request->validate([
                 'title' => 'required|string'
             ]);
@@ -20,7 +20,7 @@ class TodoController extends Controller
             $tasks = Http::withHeaders([
                 "Accept" => "application/json",
                 "Content-Type" => "application/json",
-                "Authorization" => "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYzN2NkZjFmNGE2YzM2MTczMTMzYjM1YiIsImVtYWlsIjoic2h5cHJpbmNlMUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYSQwOCRGUi5zTE9CZzBOdTBLUjBZMS9vNm1PdEUzWHY0T1lhMU5RSGhWNEdaaktOQ1Ztc0czOWo0aSIsIl9fdiI6MH0sImlhdCI6MTY2OTEzMzYxMSwiZXhwIjoxNjY5MjIwMDExfQ.yiFUMGjBcq93TB2tOo5zzfCqbnYL92dzddQ0JvqN_qc"
+                "Authorization" => "Bearer Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYzN2NkZjFmNGE2YzM2MTczMTMzYjM1YiIsImVtYWlsIjoic2h5cHJpbmNlMUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYSQwOCRGUi5zTE9CZzBOdTBLUjBZMS9vNm1PdEUzWHY0T1lhMU5RSGhWNEdaaktOQ1Ztc0czOWo0aSIsIl9fdiI6MH0sImlhdCI6MTY2OTYyNzAwMywiZXhwIjoxNjY5NzEzNDAzfQ.0wNpavQJl1eRWOk2gmqxAwgiMNLLXEwl3_jZnAOpP1s"
             ])->post(env('NODE_SERVER') . '/todos/create', $valid);
 
             if ($tasks->successful()) {
@@ -39,7 +39,7 @@ class TodoController extends Controller
         $task = Http::withHeaders([
             "Accept" => "application/json",
             "Content-Type" => "application/json",
-            "Authorization" => "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYzN2NkZjFmNGE2YzM2MTczMTMzYjM1YiIsImVtYWlsIjoic2h5cHJpbmNlMUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYSQwOCRGUi5zTE9CZzBOdTBLUjBZMS9vNm1PdEUzWHY0T1lhMU5RSGhWNEdaaktOQ1Ztc0czOWo0aSIsIl9fdiI6MH0sImlhdCI6MTY2OTEzMzYxMSwiZXhwIjoxNjY5MjIwMDExfQ.yiFUMGjBcq93TB2tOo5zzfCqbnYL92dzddQ0JvqN_qc"
+            "Authorization" => "Bearer Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYzN2NkZjFmNGE2YzM2MTczMTMzYjM1YiIsImVtYWlsIjoic2h5cHJpbmNlMUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYSQwOCRGUi5zTE9CZzBOdTBLUjBZMS9vNm1PdEUzWHY0T1lhMU5RSGhWNEdaaktOQ1Ztc0czOWo0aSIsIl9fdiI6MH0sImlhdCI6MTY2OTYyNzAwMywiZXhwIjoxNjY5NzEzNDAzfQ.0wNpavQJl1eRWOk2gmqxAwgiMNLLXEwl3_jZnAOpP1s"
         ])->get(env('NODE_SERVER') . '/todos/todo/'.$taskId);
 
         if ($task->successful()) {
@@ -56,7 +56,7 @@ class TodoController extends Controller
             $task = Http::withHeaders([
                 "Accept" => "application/json",
                 "Content-Type" => "application/json",
-                "Authorization" => "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYzN2NkZjFmNGE2YzM2MTczMTMzYjM1YiIsImVtYWlsIjoic2h5cHJpbmNlMUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYSQwOCRGUi5zTE9CZzBOdTBLUjBZMS9vNm1PdEUzWHY0T1lhMU5RSGhWNEdaaktOQ1Ztc0czOWo0aSIsIl9fdiI6MH0sImlhdCI6MTY2OTEzMzYxMSwiZXhwIjoxNjY5MjIwMDExfQ.yiFUMGjBcq93TB2tOo5zzfCqbnYL92dzddQ0JvqN_qc"
+                "Authorization" => "Bearer Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYzN2NkZjFmNGE2YzM2MTczMTMzYjM1YiIsImVtYWlsIjoic2h5cHJpbmNlMUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYSQwOCRGUi5zTE9CZzBOdTBLUjBZMS9vNm1PdEUzWHY0T1lhMU5RSGhWNEdaaktOQ1Ztc0czOWo0aSIsIl9fdiI6MH0sImlhdCI6MTY2OTYyNzAwMywiZXhwIjoxNjY5NzEzNDAzfQ.0wNpavQJl1eRWOk2gmqxAwgiMNLLXEwl3_jZnAOpP1s"
             ])->put(env('NODE_SERVER') . '/todos/edit/' . $taskId,[
                 'title' => $request->title
             ]);
@@ -78,7 +78,7 @@ class TodoController extends Controller
             $task = Http::withHeaders([
                 "Accept" => "application/json",
                 "Content-Type" => "application/json",
-                "Authorization" => "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYzN2NkZjFmNGE2YzM2MTczMTMzYjM1YiIsImVtYWlsIjoic2h5cHJpbmNlMUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYSQwOCRGUi5zTE9CZzBOdTBLUjBZMS9vNm1PdEUzWHY0T1lhMU5RSGhWNEdaaktOQ1Ztc0czOWo0aSIsIl9fdiI6MH0sImlhdCI6MTY2OTEzMzYxMSwiZXhwIjoxNjY5MjIwMDExfQ.yiFUMGjBcq93TB2tOo5zzfCqbnYL92dzddQ0JvqN_qc"
+                "Authorization" => "Bearer Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYzN2NkZjFmNGE2YzM2MTczMTMzYjM1YiIsImVtYWlsIjoic2h5cHJpbmNlMUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYSQwOCRGUi5zTE9CZzBOdTBLUjBZMS9vNm1PdEUzWHY0T1lhMU5RSGhWNEdaaktOQ1Ztc0czOWo0aSIsIl9fdiI6MH0sImlhdCI6MTY2OTYyNzAwMywiZXhwIjoxNjY5NzEzNDAzfQ.0wNpavQJl1eRWOk2gmqxAwgiMNLLXEwl3_jZnAOpP1s"
             ])->delete(env('NODE_SERVER') . '/todos/delete/' . $taskId);
 
             if ($task->successful()) {
